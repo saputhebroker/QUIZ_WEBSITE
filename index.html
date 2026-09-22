@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Orbit</title>
+  <meta
+    name="description"
+    content="Quiz Orbit is a vibrant single-page quiz website built with only HTML, CSS, and JavaScript."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="bg-shape bg-shape-one"></div>
+    <div class="bg-shape bg-shape-two"></div>
+    <div class="bg-grid"></div>
+
+    <main class="app">
+      <section class="hero">
+        <p class="eyebrow">Interactive Frontend Project</p>
+        <h1>Quiz Orbit</h1>
+        <p class="hero-copy">
+          Launch into a fast, polished trivia challenge with a timer, animated progress,
+          instant feedback, and a clean result summary.
+        </p>
+
+        <div class="hero-stats" aria-label="Quiz features">
+          <article class="stat-card">
+            <span class="stat-value">10</span>
+            <span class="stat-label">Questions</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value">20s</span>
+            <span class="stat-label">Per Round</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value">4</span>
+            <span class="stat-label">Choices Each</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="quiz-panel" aria-live="polite">
+        <div id="start-screen" class="panel-view is-visible">
+          <div class="panel-head">
+            <p class="panel-kicker">Ready to play?</p>
+            <h2>Test your general knowledge</h2>
+          </div>
+          <p class="panel-copy">
+            You will answer ten multiple-choice questions. Each question has a 20-second timer,
+            and your final score is based on correct answers.
+          </p>
+          <button id="start-btn" class="primary-btn" type="button">Start Quiz</button>
+        </div>
+
+        <div id="quiz-screen" class="panel-view" hidden>
+          <div class="quiz-topbar">
+            <div>
+              <p class="meta-label">Question</p>
+              <p id="question-count" class="meta-value">1 / 10</p>
+            </div>
+            <div>
+              <p class="meta-label">Score</p>
+              <p id="score-value" class="meta-value">0</p>
+            </div>
+            <div>
+              <p class="meta-label">Time Left</p>
+              <p id="timer-value" class="meta-value">20s</p>
+            </div>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+
+          <div class="question-wrap">
+            <p id="question-tag" class="question-tag">Topic</p>
+            <h2 id="question-text" class="question-text"></h2>
+          </div>
+
+          <div id="answer-buttons" class="answer-grid" role="list"></div>
+
+          <div class="quiz-footer">
+            <p id="feedback-text" class="feedback-text">Choose the best answer to continue.</p>
+            <button id="next-btn" class="secondary-btn" type="button" disabled>Next Question</button>
+          </div>
+        </div>
+
+        <div id="result-screen" class="panel-view" hidden>
+          <div class="panel-head">
+            <p class="panel-kicker">Mission complete</p>
+            <h2>Your results are in</h2>
+          </div>
+
+          <div class="result-score-ring">
+            <div class="result-score-core">
+              <span id="final-score" class="final-score">0%</span>
+              <span class="final-score-label">Final Score</span>
+            </div>
+          </div>
+
+          <p id="result-message" class="panel-copy">
+            Nice run. Check your performance and jump back in for another round.
+          </p>
+
+          <div id="summary-list" class="summary-list"></div>
+
+          <button id="restart-btn" class="primary-btn" type="button">Play Again</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
